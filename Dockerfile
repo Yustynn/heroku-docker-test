@@ -13,7 +13,7 @@ RUN apk add nodejs npm
 RUN npm i -g serve
 RUN npm i
 
-ENV FRONTEND_PORT=98
+ENV FRONTEND_PORT=80
 ENV REACT_APP_BACKEND_URL=http://127.17.0.1:99
 RUN npm run build
 
