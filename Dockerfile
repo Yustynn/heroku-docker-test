@@ -1,6 +1,6 @@
 FROM golang:1.16.4-alpine3.12
 
-EXPOSE 98
+
 EXPOSE 99
 
 ### FRONTEND ###
@@ -26,7 +26,9 @@ COPY example-backend .
 ENV PORT=99
 ENV REQUEST_ORIGIN=http://127.17.0.1:98
 RUN go build
+ENV PORT=80
 
+#RUN useradd -m yus
 #CMD ["./server", "&", "serve", "-s", "-l", "$FRONTEND_PORT", "/frontend/build"]
 #CMD ["serve", "-s", "-l", "$FRONTEND_PORT", "/frontend/build"]
 CMD serve -s -l $FRONTEND_PORT /frontend/build & ./server
